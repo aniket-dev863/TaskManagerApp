@@ -1,0 +1,20 @@
+# Compiled output directory
+bin/
+
+# Compiled class files
+*.class
+
+# Build directories
+build/
+target/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
+
+# Application data file (we don't want to track user data)
+tasks.txt
