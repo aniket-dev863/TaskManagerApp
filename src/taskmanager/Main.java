@@ -10,10 +10,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
-/**
- * Simple CLI front-end for TaskManager.
- * Usage: run Main, interact via menu. Tasks are auto-loaded and auto-saved.
- */
 public class Main {
     private static final Path DEFAULT_STORAGE = Paths.get("tasks.txt");
 

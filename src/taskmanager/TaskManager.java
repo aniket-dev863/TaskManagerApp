@@ -18,7 +18,6 @@ public class TaskManager {
         this.storagePath = storagePath;
     }
 
-    // Load tasks from file; if missing, start fresh.
     public void load() {
         tasks.clear();
         if (!Files.exists(storagePath))
@@ -42,7 +41,6 @@ public class TaskManager {
         }
     }
 
-    // Save tasks to file (overwrites)
     public void save() {
         try (BufferedWriter bw = Files.newBufferedWriter(storagePath)) {
             for (Task t : tasks) {
@@ -68,7 +66,6 @@ public class TaskManager {
         return tasks.stream().filter(t -> t.getId() == id).findFirst();
     }
 
-    // Mark as complete and return boolean whether successful
     public boolean markCompleted(int id) {
         Optional<Task> ot = findById(id);
         ot.ifPresent(t -> t.setCompleted(true));
@@ -84,7 +81,6 @@ public class TaskManager {
     }
 
     public List<Task> listAllSortedByPriority() {
-        // High first
         return tasks.stream()
                 .sorted(Comparator.comparing((Task t) -> t.getPriority(), Comparator.reverseOrder())
                         .thenComparing(t -> t.getDueDate(), Comparator.nullsLast(Comparator.naturalOrder())))

@@ -26,7 +26,6 @@ public class Task {
         this.completed = completed;
     }
 
-    // Factory to create from CSV line: id|title|priority|dueDate|completed
     public static Task fromCsv(String csvLine) throws IllegalArgumentException {
         String[] parts = csvLine.split("\\|", -1);
         if (parts.length != 5)
@@ -43,7 +42,6 @@ public class Task {
         }
     }
 
-    // Convert to CSV line (safe for file storage)
     public String toCsv() {
         return String.format("%d|%s|%s|%s|%s",
                 id,
@@ -53,7 +51,6 @@ public class Task {
                 Boolean.toString(completed));
     }
 
-    // Getters / Setters
     public int getId() {
         return id;
     }
